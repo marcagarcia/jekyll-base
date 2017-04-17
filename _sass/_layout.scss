@@ -77,6 +77,8 @@
         &:hover .trigger {
             display: block;
             padding-bottom: 5px;
+            position: relative;
+            z-index: 200;
             a {
                 color: #000;
             }
@@ -114,6 +116,9 @@
 .social-media-list {
     list-style: none;
     margin-left: 0;
+    icon {
+        
+    }
 }
 
 .footer-col-wrapper {
