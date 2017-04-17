@@ -1,3 +1,26 @@
+$l: 1000px;
+$m: 800px;
+$s: 600px;
+$p: 450px;
+@mixin breakpoint($point) {
+    @if $point == l {
+        @media (max-width: 1000px) { @content; }
+        body.ie-1000px & { @content; zoom: 1; }
+    }
+    @else if $point == m {
+        @media (max-width: 800px) { @content; }
+        body.ie-800px & { @content; zoom: 1; }
+    }
+    @else if $point == s {
+        @media (max-width: 600px)  { @content; }
+        body.ie-600px & { @content; zoom: 1; }
+    }
+    @else if $point == p {
+        @media (max-width: 450px)  { @content; }
+        body.ie-450px & { @content; zoom: 1; }
+    }
+}
+
 /**
  * Reset some basic elements
  */
@@ -18,9 +41,12 @@ body {
     font-size: $base-font-size;
     line-height: $base-line-height;
     font-weight: 300;
-    color: $text-color;
+    color: #fff;
     background-color: $background-color;
     -webkit-text-size-adjust: 100%;
+    background: url("../images/background.jpg") no-repeat;
+    background-size: cover;
+
 }
 
 
@@ -83,13 +109,16 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 300;
 }
 
+p {
+    margin: 1em auto;
+}
 
 
 /**
  * Links
  */
 a {
-    color: $brand-color;
+    color: #fff;
     text-decoration: none;
 
     &:visited {
@@ -199,6 +228,73 @@ pre {
 
         path {
             fill: $grey-color;
+        }
+    }
+}
+
+body.url_index {
+    .page-content {
+        padding: 0;
+        .home {
+            display: block;
+            max-width: 100%;
+            .col-1, .col-2 {
+                display: inline-block;
+                vertical-align: middle;
+                width: 49.3%;
+                max-width: 50%;
+                font-size: 0;
+            }
+            .col-1 {
+                a.site-title {
+                    color: #fff;
+                    font-size: 40px;
+                    display: inline-block;
+                    padding-bottom: 20px;
+                    position: relative;
+                    @include breakpoint(m) {
+                        font-size: 30px;
+                    }
+                    &:after {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        left: 0;
+                        bottom: 0;
+                        width: 80px;
+                        height: 5px;
+                        background-color: #fff;
+                        @include breakpoint(m) {
+                            width: 60px;
+                        }
+                    }
+                    &:hover {
+                        text-decoration: none;
+                    }
+                }
+            }
+            .col-2 {
+                text-align: right;
+                position: relative;
+                padding: 160px 0;
+                .marc {
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    width: 250px;
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+}
+
+body:not(.url_index) {
+    .page-content {
+        .wrapper {
+            margin: 30px auto;
+            padding: 20px;
+            background: rgba(#606060,0.8);
         }
     }
 }

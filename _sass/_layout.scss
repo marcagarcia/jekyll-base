@@ -32,7 +32,7 @@
     }
 
     .page-link {
-        color: $text-color;
+        color: #fff;
         line-height: $base-line-height;
 
         // Gaps between nav items, but not on the first one
@@ -77,6 +77,9 @@
         &:hover .trigger {
             display: block;
             padding-bottom: 5px;
+            a {
+                color: #000;
+            }
         }
 
         .page-link {
@@ -92,13 +95,19 @@
  * Site footer
  */
 .site-footer {
+    background-color: #1892BB;
     border-top: 1px solid $grey-color-light;
     padding: $spacing-unit 0;
+     a {
+        color: #fff;
+    }
 }
 
 .footer-heading {
     font-size: 18px;
     margin-bottom: $spacing-unit / 2;
+    color: #fff;
+
 }
 
 .contact-list,
@@ -109,7 +118,7 @@
 
 .footer-col-wrapper {
     font-size: 15px;
-    color: $grey-color;
+    color: #fff;
     margin-left: -$spacing-unit / 2;
     @extend %clearfix;
 }
