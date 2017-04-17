@@ -279,6 +279,7 @@ body.url_index {
                 padding: 160px 0;
                 .marc {
                     position: absolute;
+                    z-index: 20;
                     bottom: 0;
                     right: 0;
                     width: 250px;
